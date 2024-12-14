@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h1>Controle de Gastos com Gráficos</h1>
+            <nav>
+                <ul>
+                    <li><a href="#gastos">Gastos</a></li>
+                    <li><a href="#graficos">Gráficos</a></li>
+                    <li><a href="#relatorios">Relatórios</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <button onclick="listarGastos()">Listar Gastos</button>
+                <button onclick="exibirFormulario()">Adicionar/Atualizar Gasto</button>
+            </div>
+            <div id="output" class="output"></div>
+            <canvas id="gastosChart"></canvas>
+            <div id="total-gastos" class="total"></div>
+        </div>
+
+        <div id="form-container" class="form-container hidden">
+            <h2>Adicionar/Atualizar Gasto</h2>
+            <form onsubmit="adicionarOuAtualizarGasto(event)">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" required>
+                
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" step="0.01" required>
+                
+                <button type="submit" aria-label="Salvar"><i class="fa fa-check"></i> Salvar</button>
+                <button type="button" onclick="fecharFormulario()" aria-label="Cancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
